@@ -1,6 +1,3 @@
-
-const DEBUG_LOG_SHEET_NAME = "jsonログ";
-
 /**
  * 受信した生JSONデータをデバッグログシートに日時と共に保存します。
  * @param {string} rawJson - POSTされたJSONの生文字列

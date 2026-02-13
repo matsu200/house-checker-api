@@ -1,8 +1,3 @@
-/**
- * 
- * 
- * 
- */
 function post_saveDataToSpreadsheet(data, targetSheetName, structureType, upFlag, upName, upuuid) {
   const ss = SpreadsheetApp.openById(SPREADSHEET_ID); 
   const sheet = ss.getSheetByName(targetSheetName);

@@ -4,6 +4,10 @@
  * @param {string[]} sheetNames - 検索対象のシート名の配列
  * @returns {Object} - 集計結果を格納したオブジェクト
  */
+//集計機能関連
+const MAX_RETRIES = 5;// リトライ設定
+const INITIAL_BACKOFF_MS = 1000; // 最初の待機時間 (1秒)
+
 function getAnalysisSummary(sheetNames) {
   Logger.log("getAnalysisSummary: データ集計処理を開始します。対象シート: " + sheetNames.join(', '));
   

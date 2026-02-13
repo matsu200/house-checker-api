@@ -6,8 +6,7 @@ const SPREADSHEET_ID = '1Wq8_4dzG3KSLlZTEtScjdPBIAB92DgR9SIOmmro2PRI'; // デー
 const DRIVE_FOLDER_ID = '1GUyoIF6q3hHPZ2ELix8cIPIVG6HoWoaW'; //データを保存したいDriveのID
 const ALL_DATA_SHEET_NAMES =["木造シート","S構造シート","R構造シート"];
 const USER_SHEET_NAME = 'user';
-const TEMP_SHEET_NAME = "user"; 
-
+const DEBUG_LOG_SHEET_NAME = "jsonログ";
 const STRUCTURE_MAP = {
   "W": { sheetName: "木造シート", prefix: "W_" },
   "S": { sheetName: "S構造シート", prefix: "S_" },
@@ -19,7 +18,3 @@ const STRUCTURE_MAP = {
 const ADMIN_CODE = "12345";
 // 認証トークンの有効期限 (秒) - 推奨: 300秒 (5分)
 const TOKEN_EXPIRY_SECONDS = 300; 
-
-//集計機能関連
-const MAX_RETRIES = 5;// リトライ設定
-const INITIAL_BACKOFF_MS = 1000; // 最初の待機時間 (1秒)

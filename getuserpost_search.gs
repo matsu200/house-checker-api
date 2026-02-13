@@ -1,8 +1,3 @@
-/**
- * 
- * 
- * 
- */
 function getuserpost_search(sheetName,centerLat, centerLng, range, latKey, lngKey, keysToExtract){
     // 地球の半径（キロメートル）。距離計算の基準となる
   const EARTH_RADIUS_KM = 6371; 
