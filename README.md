@@ -1,40 +1,64 @@
-# house-checker-api
+house-checker-api
+Google Apps Script (GAS) を使った、建築構造データの保存・管理用バックエンドAPIです。建築点検の結果や画像をスプレッドシートに記録します。
 
-Google Apps Script (GAS) を使った、建築構造データの保存・管理用バックエンドAPIです。
+🛠 セットアップ方法
+1. スプレッドシートの準備
+新規スプレッドシートを作成し、以下の名前で5つのシートを作成してください。
 
-##　セットアップ方法
+木造シート
 
-###スプレットシートの準備
+S構造シート
 
---新規スプレットシートを作成し、以下のシート名を作成します。
+R構造シート
 
- `木造シート`, `S構造シート`, `R構造シート`, `user`, `jsonログ`
- 
---スプレットシートの一行目にヘッダ名を記入します。
+user
 
--木造シートヘッダ名
+jsonログ
 
-deleteflag, uuid, general, postflag, postusername, buildingtype, number, datesurveyCount, investigator, investigator_2, investigatorPrefecture, investigatorPrefecturee_2, investigatorNumber, investigatorNumber_2, latitude, longitude, generate_address, generate_cityward, buildingName, buildingNumber, address, cityward, generate_latitude, generate_longitude, mapNumber, buildingUses, structure, floors, scale, exteriorInspectionScore, exteriorInspectionRemarks, adjacentBuildingRisk, adjacentBuildingRiskImages, unevenSettlement, unevenSettlementImages, foundationDamage, foundationDamageImages, firstFloorTilt, firstFloorTiltImages, wallDamage, wallDamageImages, corrosionOrTermite, corrosionOrTermiteImages, roofTile, roofTileImages, windowFrame, windowFrameImages, exteriorWet, exteriorWetImages, exteriorDry, exteriorDryImages, signageAndEquipment, signageAndEquipmentImages, outdoorStairs, outdoorStairsImages, others, othersImages, otherRemarks, overallExteriorScore, overallStructuralScore, overallFallingObjectScore, overallScore, deleteuser, lasteditor
+2. 各シートのヘッダ設定
+各シートの 1行目 に、以下の項目をコピー＆ペーストして設定してください。
 
--S構造シートヘッダ名
+<details>
+<summary>📍 木造シートのヘッダを表示</summary>
 
-deleteflag, uuid, general, postflag, postusername, buildingtype, number, userstatus, datesurveyCount, investigator, investigator_2, investigatorPrefecture, investigatorPrefecture_2, investigatorNumber, investigatorNumber_2, latitude, longitude, generate_address, generate_cityward, buildingName, buildingNumber, address, cityward, generate_latitude, generate_longitude, mapNumber, buildingUses, structure, floors, scale, exteriorInspectionScore, exteriorInspectionRemarks, hasSevereDamageMembers, hasSevereDamageMembersImages, adjacentBuildingRisk, adjacentBuildingRiskImages, groundFailureInclination, groundFailureInclinationImages, unevenSettlement, unevenSettlementImages, inspectedFloorsForColumns, totalColumnsLevel5, surveyedColumnsLevel5, percentColumnsLevel5, percentColumnsDamageLevel5, percentColumnsDamageLevel5Images, surveyRateLevel5, totalColumnsLevel4, surveyedColumnsLevel4, percentColumnsLevel4, percentColumnsDamageLevel4, percentColumnsDamageLevel4Images, surveyRateLevel4, windowFrame, windowFrameImages, exteriorMaterialMortarTileStone, exteriorMaterialMortarTileStoneImages, exteriorMaterialALCPCMetalBlock, exteriorMaterialALCPCMetalBlockImages, signageAndEquipment, signageAndEquipmentImages, outdoorStairs, outdoorStairsImages, others, othersImages, otherRemarks, overallExteriorScore, overallStructuralScore2, overallStructuralScore, overallFallingObjectScore, overallScore, deleteuser, lasteditor
+</details>
 
--R構造シートヘッダ名
+<details>
+<summary>📍 S構造シートのヘッダを表示</summary>
 
-deleteflag, uuid, general, postflag, postusername, buildingtype, number, userstatus, datesurveyCount, investigator, investigator_2, investigatorPrefecture, investigatorPrefecture_2, investigatorNumber, investigatorNumber_2, latitude, longitude, generate_address, generate_cityward, buildingName, buildingNumber, address, cityward, generate_latitude, generate_longitude, mapNumber, buildingUses, structure, floors, scale, exteriorInspectionScore, exteriorInspectionRemarks, adjacentBuildingRisk, adjacentBuildingRiskImages, unevenSettlement, unevenSettlementImages, upperFloorLe1, upperFloorLe1Images, upperFloorLe2, upperFloorLe2Images, hasBuckling, hasBucklingImages, bracingBreakRate, bracingBreakRateImages, jointFailure, jointFailureImages, columnBaseDamage, columnBaseDamageImages, corrosion, corrosionImages, roofingMaterial, roofingMaterialImages, windowFrame, windowFrameImages, exteriorWet, exteriorWetImages, exteriorDry, exteriorDryImages, signageAndEquipment, signageAndEquipmentImages, outdoorStairs, outdoorStairsImages, others, othersImages, otherRemarks, overallExteriorScore, overallStructuralScore, overallFallingObjectScore, overallScore, deleteuser, lasteditor
+</details>
 
--userヘッダ名
+<details>
+<summary>📍 R構造シートのヘッダを表示</summary>
 
-timestamp, emailAddress, hashedpassword, user_role, user_name, admin_number, admin_city, deleteflag, deleteflag, timestamp
+</details>
 
+<details>
+<summary>📍 userシートのヘッダを表示</summary>
 
---Google Apps Scriptプロジェクトを作成します。
+</details>
 
---ブラウザ拡張機能「Google Apps Script GitHub Assistant」を有効します。
+3. GASプロジェクトの構築
+ プロジェクトを新規作成します。
 
---拡張機能メニューからgitリポジトリを連携します。　https://github.com/matsu200/house-checker-api
+ブラウザ拡張機能 「Google Apps Script GitHub Assistant」 をインストールして有効化します。
 
---プロジェクトの「pull」ボタンを実行しエディタにコードを読み込みます。
+拡張機能メニューから本リポジトリを連携します。
 
---mainファイルに記載されているSPREADSHEET_IDを自身のIDに変更します。
+https://github.com/matsu200/house-checker-api
+
+プロジェクトの 「Pull (↓)」 ボタンを実行し、コードを読み込みます。
+
+4. 環境設定
+main.gs（または該当ファイル）に記載されている SPREADSHEET_ID を、自身のスプレッドシートIDに書き換えて保存してください。
+
+必要に応じて、DRIVE_FOLDER_ID 等も設定してください。
+
+🚀 デプロイ
+GASエディタ右上の「デプロイ」＞「新しいデプロイ」を選択。
+
+種類：ウェブアプリ
+
+アクセスできるユーザー：全員
+
+発行されたURLをフロントエンドアプリの送信先に設定してください。
