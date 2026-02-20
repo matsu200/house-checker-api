@@ -33,7 +33,7 @@ timestamp, emailAddress, hashedpassword, user_role, user_name, admin_number, adm
 
 --ブラウザ拡張機能「Google Apps Script GitHub Assistant」を有効します。
 
---拡張機能メニューから　https://github.com/matsu200/house-checker-api　を連携します。
+--拡張機能メニューからgitリポジトリを連携します。　https://github.com/matsu200/house-checker-api
 
 --プロジェクトの「pull」ボタンを実行しエディタにコードを読み込みます。
 
