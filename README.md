@@ -29,3 +29,11 @@ deleteflag, uuid, general, postflag, postusername, buildingtype, number, usersta
 timestamp, emailAddress, hashedpassword, user_role, user_name, admin_number, admin_city, deleteflag, deleteflag, timestamp
 
 --mainファイルに記載されているSPREADSHEET_IDを自身のIDに変更します。
+
+--Google Apps Scriptプロジェクトを作成します。
+
+--ブラウザ拡張機能「Google Apps Script GitHub Assistant」を有効します。
+
+--拡張機能メニューから　https://github.com/matsu200/house-checker-api　を連携します。
+
+--プロジェクトの「pull」ボタンを実行しエディタにコードを読み込みます。
